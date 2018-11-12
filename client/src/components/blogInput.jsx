@@ -1,24 +1,39 @@
 import React, { Component } from "react";
+import {withRouter} from "react-router";
 
 class BlogInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      author: " ",
+      title: " ",
       content: " "
     };
+
+    this.handleAuthorChange = this.handleAuthorChange.bind(this);
+    this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async handleSubmit(e) {
-    e.preventDefault();
+  handleAuthorChange(event) {
+    this.setState({ title: event.target.value });
+  }
+
+  handleContentChange(event) {
+    this.setState({ content: event.target.value });
+  }
+
+  async handleSubmit(event) {
+    event.preventDefault();
     try {
       await fetch("/api/blogs", {
         method: "POST",
         headers: {
+          "Accept": "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify(this.state)
       });
+      console.log(this.props.history);
       this.props.history.replace("/");
     } catch (e) {
       console.log(e);
@@ -27,44 +42,36 @@ class BlogInput extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <h3>write a blog post</h3>
+      <form className="addBlogInput" cols="80" onSubmit={this.handleSubmit}>
+        <div className="form-group">
+          <label>
+            Title:
+            <input
+              type="text"
+              className="form-control"
+              id="addBlogAuthor"
+              placeholder="Enter your Name?"
+              value={this.state.title}
+              onChange={this.handleAuthorChange}
+            />
+          </label>
         </div>
-        <div className="row">
-          <div className="col-12">
-            <div className="widget-area no-padding blank">
-              <div className=" status-upload">
-                <form>
-                  <div className="form-group">
-                    <input
-                      className=" addBlogInput form-control"
-                      placeholder="Who are you?"
-                      value={this.state.author}
-                      onChange={(e) => this.setState({ author: e.target.value })}
-                    />
-                  </div>
-                  <textarea
-                    cols="80"
-                    placeholder="What are you doing right now?"
-                    value={this.state.content}
-                    onChange={(e) => this.setState({ content: e.target.value })}
-                  />
-                  <button
-                    type="submit"
-                    className="btn btn-success green"
-                    onClick={(e) => this.handleSubmit(e)}
-                  >
-                    <i className="fa fa-share" /> Share
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
+        <div className="form-group">
+          <textarea
+            type="text"
+            className="form-control"
+            id="blogInputText"
+            placeholder="Write blog post here"
+            value={this.state.content}
+            onChange={this.handleContentChange}
+          />
         </div>
-      </div>
+        <button type="submit" value="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </form>
     );
   }
 }
 
-export default BlogInput;
+export default withRouter(BlogInput);

@@ -22,7 +22,7 @@ class FrontPage extends Component {
 
   renderBlogs() {
       return this.state.blogs.map(blog => {
-          return <BlogCard key={blog.id} blog={blog}/>
+          return <BlogCard key={blog.id} id={blog.id} title={blog.title} content={blog.content} blog={blog}/>
       })
   }
 
