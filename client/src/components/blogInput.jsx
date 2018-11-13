@@ -35,8 +35,8 @@ class BlogInput extends Component {
       });
       console.log(this.props.history);
       this.props.history.replace("/");
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   }
 

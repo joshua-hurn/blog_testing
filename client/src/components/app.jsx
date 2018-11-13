@@ -16,7 +16,7 @@ class Navigation extends Component {
                     <BlogInput />
                     <Switch>
                         <Route exact path="/" component={FrontPage} />
-                        <Route exact path="/blog/:id" component={SingleBlog} />
+                        <Route exact path="/single/:id" component={SingleBlog} />
                     </Switch>
                 </Fragment>
             </Router>

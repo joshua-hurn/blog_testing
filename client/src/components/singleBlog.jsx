@@ -12,7 +12,7 @@ class SingleBlog extends Component {
   async componentDidMount() {
     try {
       let res = await fetch(
-        `http://localhost:3000/api/blog/${this.props.match.params.id}`
+        `http://localhost:3000/api/blogs/${this.props.match.params.id}`
       );
       let blog = await res.json();
       this.setState({ blog });
@@ -23,14 +23,16 @@ class SingleBlog extends Component {
 
   render() {
     return (
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap" />
-        <div class="card-body">
-          <h5 class="card-title">{this.state.blog.title}</h5>
-          <p class="card-text">{this.state.blog.content}</p>
-          <a href="#" class="btn btn-primary">
-            Go somewhere
-          </a>
+      <div>
+        {console.log(this.state)}
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{this.state.blog.title}</h5>
+            <p className="card-text">{this.state.blog.content}</p>
+            <a href="#" className="btn btn-primary">
+              Go somewhere
+            </a>
+          </div>
         </div>
       </div>
     );

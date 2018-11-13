@@ -1,12 +1,24 @@
+* {
+    margin: 0, auto;
+}
+
 .status-upload {
     margin: 0, auto;
 }
 
 .blogCards {
     width: 400px;
-    margin: 5em;
+    margin: 0, auto;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    max-width: 100%;
 }
 
 .addBlogInput {
-    width: 290px;
+    margin: 100px;
+}
+
+.jumbotron {
+    background-image: url("../assets/birmingham_cityscape.png");
+    background-size: cover;
 }
