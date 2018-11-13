@@ -1,12 +1,15 @@
-* {
-    margin: 0, auto;
-}
-
 .status-upload {
     margin: 0, auto;
 }
 
+.container {
+    width: 100vw;
+    background-image: url("https://static1.squarespace.com/static/51f08295e4b07acd2a169238/t/5419a13fe4b073da922081cb/1410965848777/");
+    background-size: auto;
+}
+
 .blogCards {
+    justify-content: space-between;
     width: 400px;
     margin: 0, auto;
     margin-left: 1.5em;

@@ -28,7 +28,7 @@ class FrontPage extends Component {
 
   render() {
     return (
-        <div className="row">
+        <div className="container row">
             {this.renderBlogs()}
         </div>
     )
