@@ -4,6 +4,7 @@ import FrontPage from './frontpage';
 import Jumbotron from './jumbotron';
 import BlogInput from './blogInput';
 import SingleBlog from './singleBlog';
+import Navbar from './Navbar';
 import css from '../styles/styles.css';
 
 class Navigation extends Component {
@@ -12,9 +13,10 @@ class Navigation extends Component {
         return (
             <Router>
                 <Fragment>
+                    <Navbar/>
                     <Jumbotron />
-                    <BlogInput />
                     <Switch>
+                        <Route exact path="/post" component={BlogInput} />
                         <Route exact path="/" component={FrontPage} />
                         <Route exact path="/single/:id" component={SingleBlog} />
                     </Switch>

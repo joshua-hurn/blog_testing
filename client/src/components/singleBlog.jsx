@@ -24,7 +24,6 @@ class SingleBlog extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state)}
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">{this.state.blog.title}</h5>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {withRouter} from "react-router";
+import { withRouter } from "react-router";
 
 class BlogInput extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class BlogInput extends Component {
       await fetch("/api/blogs", {
         method: "POST",
         headers: {
-          "Accept": "application/json",
+          Accept: "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify(this.state)
@@ -42,34 +42,39 @@ class BlogInput extends Component {
 
   render() {
     return (
-      <form className="addBlogInput" cols="80" onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label>
-            Title:
-            <input
-              type="text"
-              className="form-control"
-              id="addBlogAuthor"
-              placeholder="Enter your Name?"
-              value={this.state.title}
-              onChange={this.handleAuthorChange}
-            />
-          </label>
+      <div className="card blogInputCard">
+        <div className="card-header">Blog Input</div>
+        <div className="card-body">
+          <form className="addBlogInput" cols="80" onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label>
+                Title:
+                <input
+                  type="text"
+                  className="form-control"
+                  id="addBlogAuthor"
+                  placeholder="Enter your Name?"
+                  value={this.state.title}
+                  onChange={this.handleAuthorChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <textarea
+                type="text"
+                className="form-control"
+                id="blogInputText"
+                placeholder="Write blog post here"
+                value={this.state.content}
+                onChange={this.handleContentChange}
+              />
+            </div>
+            <button type="submit" value="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
         </div>
-        <div className="form-group">
-          <textarea
-            type="text"
-            className="form-control"
-            id="blogInputText"
-            placeholder="Write blog post here"
-            value={this.state.content}
-            onChange={this.handleContentChange}
-          />
-        </div>
-        <button type="submit" value="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      </div>
     );
   }
 }

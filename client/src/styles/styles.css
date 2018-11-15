@@ -1,27 +1,61 @@
-.status-upload {
-    margin: 0, auto;
+body {
+  background-color: rgb(130, 140, 160);
 }
 
-.container {
-    width: 100vw;
-    background-image: url("https://static1.squarespace.com/static/51f08295e4b07acd2a169238/t/5419a13fe4b073da922081cb/1410965848777/");
-    background-size: auto;
+.status-upload {
+  margin: 0, auto;
+}
+
+.blogContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 13px;
 }
 
 .blogCards {
-    justify-content: space-between;
-    width: 400px;
-    margin: 0, auto;
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-    max-width: 100%;
+  align-items: stretch;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  max-width: 100%;
+}
+
+.btn-circle {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 9px;
+  line-height: 1.428571429;
+  border-radius: 17px;
 }
 
 .addBlogInput {
-    margin: 100px;
+  margin: 100px;
 }
 
 .jumbotron {
-    background-image: url("../assets/birmingham_cityscape.png");
-    background-size: cover;
+  background-position: 20% 30%;
+  background-image: url("../assets/birmingham_cityscape.png");
+  background-size: cover;
+  height: 500px;
+}
+
+.jumbotronTitle {
+    font-weight: 500;
+}
+
+.jumbotron p {
+    font-weight: 500;
+}
+
+.blogInputCard {
+  background-image: url("https://pbs.twimg.com/media/DJyBI32VAAE0j3x.jpg");
+  background-size: cover;
+  margin: 4em;
+}
+
+.ImgLogo {
+  width: 60px;
+  height: auto;
 }

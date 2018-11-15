@@ -8,7 +8,7 @@ const BlogCard = props => {
         <div className="card-header bg-secondary text-white">{props.title}</div>
         <div className="card-body">
           <p className="card-text">{props.content}</p>
-          <Link className="viewPostButton btn btn-success" to={`/single/${props.id}`}>View Post</Link>
+          <Link className="viewPostButton btn btn-success btn-circle" to={`/single/${props.id}`}>View</Link>
         </div>
       </div>
     </div>
