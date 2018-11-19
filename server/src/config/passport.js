@@ -4,7 +4,7 @@ import { Strategy as BearerStrategy } from 'passport-http-bearer';
 import Table from '../table';
 import { encode, decode } from '../utils/tokens';
 
-let usersTable = new Table('Users');
+let usersTable = new Table('Authors');
 let tokensTable = new Table('Tokens');
 
 function configurePassport(app) {
@@ -19,7 +19,7 @@ function configurePassport(app) {
             let [user] = await usersTable.find({ email });
             if (user && user.password && user.password === password) {
                 let idObj = await tokensTable.insert({
-                    userid: user.id
+                    authorid: authors.id
                 });
                 let token = encode(idObj.id);
                 return done(null, { token });
@@ -38,7 +38,7 @@ function configurePassport(app) {
         }
         try {
             let tokenRecord = await tokensTable.getOne(tokenId);
-            let user = await usersTable.getOne(tokenRecord.userid);
+            let user = await usersTable.getOne(tokenRecord.authorid);
             if (user) {
                 delete user.password;
                 return done(null, user);
