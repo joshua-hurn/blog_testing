@@ -1,5 +1,6 @@
-import React from "react";
-import LogoImage from "../assets/LogoMakr_652r9s.png" 
+import React, { Fragment } from "react";
+import LogoImage from "../assets/LogoMakr_652r9s.png";
+import AuthButton from "./auth/authButton";
 
 const Navbar = () => {
   return (
@@ -12,6 +13,7 @@ const Navbar = () => {
         alt=""
       />
       Birmingham Currents
+      <AuthButton />
     </nav>
   );
 };

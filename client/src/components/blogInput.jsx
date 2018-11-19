@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import  *  as  blogServices  from  '../services/blogs';
 
 class BlogInput extends Component {
   constructor(props) {
@@ -25,14 +26,7 @@ class BlogInput extends Component {
   async handleSubmit(event) {
     event.preventDefault();
     try {
-      await fetch("/api/blogs", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(this.state)
-      });
+      let res = await blogServices.insert(this.state);
       console.log(this.props.history);
       this.props.history.replace("/");
     } catch (error) {
