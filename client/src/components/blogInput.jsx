@@ -27,7 +27,6 @@ class BlogInput extends Component {
     event.preventDefault();
     try {
       let res = await blogServices.insert(this.state);
-      console.log(this.props.history);
       this.props.history.replace("/");
     } catch (error) {
       console.log(error);

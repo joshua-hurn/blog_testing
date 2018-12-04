@@ -18,7 +18,6 @@ class Navigation extends Component {
           <Navbar />
           <Jumbotron />
           <Switch>
-            <Route exact path="/post" component={BlogInput} />
             <Route exact path="/" component={FrontPage} />
             <Route exact path="/single/:id" component={SingleBlog} />
             <PrivateRoute exact path="/compose" component={BlogInput} />

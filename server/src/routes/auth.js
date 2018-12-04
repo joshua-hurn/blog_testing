@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import passport from 'passport';
+// import { generateHash } from '../utils/security';
 
 let router = Router();
 
 router.post('/login', (req, res, next) => {
-    console.log('err');
+    console.log('hey');
     passport.authenticate('local', (err, token, info) => {
+        console.log('fml');
         if (err) {
             console.log(err);
             return res.sendStatus(500);
